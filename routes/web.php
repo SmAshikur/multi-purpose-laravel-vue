@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('welcome');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/{any?}', [HomeController::class, 'index'])->name('home');
+//Route::get('{path}',[HomeController::class, 'index'])->where( 'path', '([A-z\d-/_.]+)?' );
+//Route::get('/home/{name}', function ($name) {
+
+//})->where('name', '([A-z\d-/_.]+)?');
