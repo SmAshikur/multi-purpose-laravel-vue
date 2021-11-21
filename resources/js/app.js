@@ -18,6 +18,7 @@ window.Swal=Swal;
 import CxltToastr from 'cxlt-vue2-toastr'
 import 'cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css'
 
+
 var toastrConfigs = {
     position: 'top center',
     showDuration: 1000,
@@ -28,9 +29,17 @@ var toastrConfigs = {
 }
 
 Vue.use(CxltToastr,toastrConfigs)
+import VueProgressBar from 'vue-progressbar'
+
+Vue.use(VueProgressBar, {
+  color: 'rgb(143, 255, 199)',
+  failedColor: 'red',
+  height: '2px'
+})
 
 //import { Form, HasError,AlertError} from 'vform';
 import { Form} from 'vform'
+
 window.Form= Form;
 Vue.component('pagination', require('laravel-vue-pagination'));
 

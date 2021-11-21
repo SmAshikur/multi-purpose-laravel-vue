@@ -156,12 +156,15 @@ Swal.fire({
             },
 
          async login () {
+              await this.$Progress.start()
                await this.form.post('api/user');
-              await $('#exampleModal').modal('hide')
+               await this.$Progress.finish()
+                $('#exampleModal').modal('hide')
                     this.$toast.success({
                         title:'Creation Complete',
                         message:'User create Successfully'
                     })
+
                 },
             // loadUser(){
              //   axios.head('api/user').then(response=>{
